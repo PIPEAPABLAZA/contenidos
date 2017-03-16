@@ -11864,7 +11864,7 @@ bmp 8 [255, 255, 255, 200, 34, 35] 20
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En esta sección veremos estructuras basadas en un ordenamiento secuencial de los elementos, según como son ingresados en la estructura. Todos las estructuras de este tipo soportan indexación de los elementos de la forma <i>secuencia[índice]</i>. El <i>índice</i> parte desde <b>0</b> hasta el <b>largo de la secuencia - 1</b>. En este tipo de estructuras encontramos: <i>Strings</i>, <i>Tuplas</i> y <i>Listas</i>. En particular los Strings también entran en la categoría de secuencias basadas en arreglos, sin embargo, se consideran más un tipo de variable que una estructura de datos.</p>
+<p>En esta sección veremos estructuras basadas en un ordenamiento secuencial de los elementos, según como son ingresados en la estructura. Todos las estructuras de este tipo soportan indexación de los elementos de la forma <code>secuencia[índice]</code>. El <code>índice</code> parte desde <b>0</b> hasta el <b>largo de la secuencia - 1</b>. En este tipo de estructuras encontramos: <code>Strings</code>, <code>Tuplas</code> y <code>Listas</code>. En particular los Strings también entran en la categoría de secuencias basadas en arreglos, sin embargo, se consideran más un tipo de variable que una estructura de datos.</p>
 
 </div>
 </div>
@@ -11901,7 +11901,7 @@ Las tuplas pueden contener distintos objetos o tipos de datos. Para declarar o c
 <span class="c1"># Se puede declarar explícitamente los elementos de la tupla ingresando los elementos entre paréntesis.</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># La tuple puede ser creda con objetos de distito tipo. En las tuplas el uso de parentesis no es obligatorio cuando son creadas.</span>
+<span class="c1"># La tupla puede ser creda con objetos de distito tipo. En las tuplas el uso de parentesis no es obligatorio cuando son creadas.</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;mensaje&#39;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -11985,8 +11985,8 @@ Las tuplas pueden contener distintos objetos o tipos de datos. Para declarar o c
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>Traceback (most recent call last)
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
 <span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-4-ebacdeb7992d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
 <span class="ansi-green-fg">      1</span> img <span class="ansi-yellow-intense-fg ansi-bold">=</span> Imagen<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 <span class="ansi-green-fg">      2</span> a <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-yellow-intense-fg ansi-bold">(</span>img<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;este es&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;un archivo&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
@@ -12079,15 +12079,25 @@ Las tuplas pueden contener distintos objetos o tipos de datos. Para declarar o c
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Forma general de hacer slicing en Python:</p>
-<p>a[start : end] # elementos desde start hasta end-1
-a[start:]    # elementos desde start hasta el final del arreglo
-a[:end]      # elementos desde el principio hasta end-1
-a[:]         # una copia (shallow) del arreglo completo. El arreglo retornado está en una nueva dir de memoria, pero 
-               los elementos de adentro están en la misma dirección de memoria del arreglo inicial
-a[start : end : step] # start hasta no pasar end, en pasos de a step
-a[-1]    # último elemento en el arreglo
-a[-2:]   # últimos dos elementos en el arreglo
-a[:-2]   # todos los elementos del arreglo menos los últimos dos</p>
+<ul>
+<li><p><code>a[start : end]</code>: retorna los elementos desde <code>start</code> hasta <code>end-1</code></p>
+</li>
+<li><p><code>a[start:]</code>: retorna los elementos desde <code>start</code> hasta el final del arreglo</p>
+</li>
+<li><p><code>a[:end]</code>: retorna los elementos desde el principio hasta <code>end-1</code></p>
+</li>
+<li><p><code>a[:]</code>: crea una copia (shallow) del arreglo completo. Es decir, el arreglo retornado está en una nueva dirección de memoria, pero los elementos en el arreglo están hace referencia a la dirección de memoria a los elemenos del arreglo inicial</p>
+</li>
+<li><p><code>a[start : end : step]</code>: retorna los elementos desde <code>start</code> hasta no pasar <code>end</code>, en pasos de a <code>step</code></p>
+</li>
+<li><p><code>a[-1]</code>: retorna el último elemento en el arreglo</p>
+</li>
+<li><p><code>a[-n:]</code>:   # últimos <code>n</code> elementos en el arreglo</p>
+</li>
+<li><p><code>a[:-n]</code>: retorna todos los elementos del arreglo menos los últimos <code>n</code> elementos</p>
+</li>
+</ul>
+<p>Veamos por ejemplos de <em>slicing</em> aplicado a tuplas.</p>
 
 </div>
 </div>
@@ -12285,12 +12295,12 @@ a[:-2]   # todos los elementos del arreglo menos los últimos dos</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lista vacía y agregar elementos incrementalmente. En este caso agregamos tuplas.</span>
 <span class="n">LE</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">LE</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2015</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
-<span class="n">LE</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2015</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">LE</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="n">LE</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">LE</span><span class="p">)</span>
 
 <span class="c1"># Tambien es posible agregar los objetos explicitamente al definirla por primera vez</span>
-<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mf">20.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">45</span><span class="p">)]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mf">20.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">45</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 
 <span class="c1"># Extraemos un el elemento usando el indice respectivo</span>
@@ -12406,7 +12416,7 @@ string
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Además del poder extraer mediante indexación un elemento específico desde una lista, y al igual que las tuplas es posible también recuperar una porción completa de la lista utilizando la notación <i>slicing</i>.</p>
+<p>Además podemos extraer mediante indexación un elemento específico desde una lista. Al igual que las tuplas también es posible recuperar una porción completa de la lista utilizando la notación <em>slicing</em>.</p>
 
 </div>
 </div>
@@ -12417,7 +12427,7 @@ string
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tomando una tajada particular</span>
-<span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">]</span>
+<span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
 
 <span class="c1"># tomando una seccion hasta el final de la lista</span>
@@ -12471,7 +12481,7 @@ string
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
 
 <span class="c1"># En sentido ascendente. Observar como a no recibe ninguna asignacion despues de que la lista numeros es ordenada</span>
@@ -12533,6 +12543,7 @@ string
 <span class="n">piezas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pieza</span><span class="p">(</span><span class="s1">&#39;Rey&#39;</span><span class="p">))</span>
 <span class="n">piezas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pieza</span><span class="p">(</span><span class="s1">&#39;Reina&#39;</span><span class="p">))</span>
 
+<span class="c1"># Por cada iteración en el ciclo la variable pieza recibe un elemento de la lista.</span>
 <span class="k">for</span> <span class="n">pieza</span> <span class="ow">in</span> <span class="n">piezas</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pid: </span><span class="si">{0}</span><span class="s1"> - tipo de pieza: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pieza</span><span class="o">.</span><span class="n">pid</span><span class="p">,</span> <span class="n">pieza</span><span class="o">.</span><span class="n">tipo</span><span class="p">))</span>
 </pre></div>

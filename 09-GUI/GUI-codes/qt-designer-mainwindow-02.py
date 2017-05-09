@@ -1,9 +1,12 @@
 __author__ = 'Christian Pieringer'
 
+import sys
+
 from PyQt5 import uic
 from PyQt5.QtWidgets import (QApplication, QMessageBox)
 
-# Cargamos el formulario usando uic
+from backend import cuociente  # Importamos el back-end
+
 formulario = uic.loadUiType("qt-designer-mainwindow.ui")
 
 
@@ -22,12 +25,14 @@ class MainWindow(formulario[0], formulario[1]):
         """
 
         try:
-            self.label_3.setText('= ' + str(
-                float(self.lineEdit1.text()) / float(self.lineEdit2.text())))
-        except ValueError as err:
-            """Existen cuadros de dialos pre-construidos. En este caso
-            usaremos un MessageBox para mostrar el mensaje de error.
             """
+            Cuociente pertenece al backend. En este caso, cualquier cambio en
+            el cómo calcular cuociente no significará un cambio en el
+            front-end.
+            """
+            resultado = cuociente(self.lineEdit1.text(), self.lineEdit2.text())
+            self.label_3.setText('= {}'.format(resultado))
+        except ValueError as err:
             QMessageBox.warning(self, '', str(err))
 
 
@@ -35,4 +40,4 @@ if __name__ == '__main__':
     app = QApplication([])
     form = MainWindow()
     form.show()
-    app.exec_()
+    sys.exit(app.exec_())

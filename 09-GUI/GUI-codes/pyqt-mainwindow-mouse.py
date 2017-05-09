@@ -41,6 +41,7 @@ class MainForm(QtGui.QMainWindow):
         self.statusBar().showMessage('Cambié el Status')
 
     def keyPressEvent(self, event):
+        print(event.__dict__)
         self.statusBar().showMessage('Tecla presionada {}'.format(event.text()))
 
     def mousePressEvent(self, *args, **kwargs):
